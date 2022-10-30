@@ -1,0 +1,51 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+
+<form  class="container mt-3" style="width: 30%;" method="post" action="/artikel/update">
+  <!-- || dia bertanya apakah contact.old namenya ada atau tidak
+  maka jika tidak ada, maka di system akan memakai contact.name -->
+   <input type="hidden" name ="oldId" value= "<%= (contactEdit.oldId) || contactEdit.id%>">
+    <div class="form-floating mb-3"> 
+        <h1> Update Data </h1>
+
+        <% if (typeof errors != 'undefined') { %>
+            <div class="alert alert-danger" role="alert">
+              <ul>
+                <% errors.forEach(error => { %>
+                   <li><%= error.msg %> </li>
+                <% }) %>
+              </ul>
+            </div>
+           <% } %>
+        
+
+        <br><h5>Id artikel:</h5>
+         <label for="text"></label>
+         <input type="text" class="form-control" id="id" name="id" aria-describedby=" id " value= "<%= contactEdit.id%>">
+
+    </div>   
+    
+      
+    </div>
+
+    <div class="form-floating">
+    
+    <h5>Judul Artikel:</h5>
+        <label for="exampleInputEmail1"></label>
+        <input type="text" class="form-control" id="judul" name="judul" aria-describedby="text" value= "<%= contactEdit.judul%>">
+          
+    </div>
+
+    <div class="form-floating">
+    <h5>Deskripsi Artikel:</h5>
+        <label for="exampleInputPassword1"></label>
+        <input type="text" class="form-control" id="deskripsi" name="deskripsi" value= "<%= contactEdit.deskripsi%>">
+        <p><br> <button type="submit" class="btn btn-outline-dark">Update</button> 
+       
+    </div>
+    
+    
+</form>
+
+
+<%- include('layout/footer') %>

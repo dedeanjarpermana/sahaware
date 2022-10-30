@@ -1,0 +1,52 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+<div class="pageutama" style="width: 100%;">
+    <h2> Buatlah karya yang akan mengharumkan namamu sepanjang masa. </h1>
+
+      <% if (msg.length !== 0) { %>
+        <div class="alert alert-info" role="alert">
+          <%= msg %> 
+        </div>
+      <% } %>      
+          <form  class="container mt-3" style="width: 90%;" method="post" action="/artikel/deletemultiple">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col"> No</th>
+                    <th scope="col">id</th>
+                    <th scope="col">judul</th>
+                    <th scope="col">deskripsi</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% kontak.forEach((kontak,i)=> { (i++) %>
+                    <tr>
+                        
+                        <td> <%= i++ %> </td>
+                        <td> <%= kontak.id %> </td>
+                        <td> <%= kontak.judul %> </td>
+                        <td> <%= kontak.deskripsi %> </td>
+                        <td>
+                          <a href="/artikel/<%= kontak.id %>" class="btn btn-outline-dark">Details</a> <!--page contact di web -->
+                          
+                      </td>
+                      
+                    </tr>
+                    
+                  
+                </tr>
+            
+        <%}); %> 
+            </tr>
+            <a href="/artikel/add" class="btn btn-outline-dark mb-2">Add Artikel</a> <!-- ke page contact/ add (add kontak)-->
+           
+            
+          </form>
+            </tbody>
+          </table>
+    
+</div>
+
+<%- include('layout/footer') %>

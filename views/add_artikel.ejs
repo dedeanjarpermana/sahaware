@@ -1,0 +1,42 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+
+<form  class="container mt-3" style="width: 30%;" method="post" action="/artikel">
+    <div class="form-floating mb-3">
+    <h1> Form Add Data </h1>
+    
+    
+        <% if (typeof errors != 'undefined') { %>
+            <div class="alert alert-danger" role="alert">
+              <ul>
+                <% errors.forEach(error => { %>
+                   <li><%= error.msg %> </li>
+                <% }) %>
+              </ul>
+            </div>
+           <% } %>
+        
+    
+    <br><h5>Id Artikel:</h5>
+        <label for="exampleInputEmail1"></label>
+        <input type="text" class="form-control" id="id" name="id" aria-describedby="nama_anda" placeholder="Enter your id artikel">
+    </div>
+
+    <div class="form-floating">
+        <h5>Judul Artikel:</h5>
+            <label for="exampleInputPassword1"></label>
+            <input type="text" class="form-control" id="judul" name="judul" placeholder="isi judul artikel">
+            
+    </div>
+
+    <div class="form-floating">
+    <h5>Deskripsi Artikel:</h5>
+        <label for="exampleInputEmail1"></label>
+        <input type="text" class="form-control" id="deskripsi" name="deskripsi" aria-describedby="deskripsi" placeholder="isikan deskripsi artikel">
+        <p><br> <button type="submit" class="btn btn-outline-dark">Submit</button> </p>
+    </div>
+    
+</form>
+
+
+<%- include('layout/footer') %>
